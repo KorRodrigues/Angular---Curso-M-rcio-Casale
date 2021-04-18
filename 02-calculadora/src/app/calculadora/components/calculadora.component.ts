@@ -26,8 +26,8 @@ export class CalculadoraComponent implements OnInit {
   defaultValues(): void {
     this.numero1 = '0';
     this.numero2 = null;
-    this.numero1 = null;
-    this.numero1 = null;
+    this.resultado = null;
+    this.operacao = null;
   }
 
   /**
@@ -37,6 +37,10 @@ export class CalculadoraComponent implements OnInit {
    * @returns void
    */
   adicionarNumero(numero: string): void {
+    if (this.resultado !== null) {
+      this.defaultValues();
+    }
+
     if (this.operacao === null) {
       this.numero1 = this.concatenarNumero(this.numero1, numero);
     } else {
@@ -114,6 +118,8 @@ export class CalculadoraComponent implements OnInit {
       parseFloat(this.numero2),
       this.operacao
     );
+
+    this.numero1 = this.resultado.toString();
   }
 
   /**
