@@ -1,4 +1,3 @@
-import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -23,7 +22,7 @@ export class JogoDaVelhaService {
   constructor() { }
 
   /**
-   * Inicializa o jogo. Define exibição da tela inicial
+   * Inicializa o jogo. Define exibição da tela inicial.
    *
    * @returns void
    */
@@ -39,7 +38,7 @@ export class JogoDaVelhaService {
 
   /**
    * Inicializa o tabuleiro do jogo com vazio para todas
-   * as posições
+   * as posições.
    *
    * @returns void
    */
@@ -51,7 +50,7 @@ export class JogoDaVelhaService {
   }
 
   /**
-   * Retorna se a tela de inicio deve ser exibida
+   * Retorna se a tela de inicio deve ser exibida.
    *
    * @returns boolean
    */
@@ -60,7 +59,7 @@ export class JogoDaVelhaService {
   }
 
   /**
-   * Retorna se a tela de tabuleiro deve ser exibida
+   * Retorna se a tela de tabuleiro deve ser exibida.
    *
    * @returns boolean
    */
@@ -69,7 +68,7 @@ export class JogoDaVelhaService {
   }
 
   /**
-   * Retorna se a tela de fim deve ser exibida
+   * Retorna se a tela de fim deve ser exibida.
    *
    * @returns boolean
    */
@@ -78,7 +77,7 @@ export class JogoDaVelhaService {
   }
 
   /**
-   * Retorna o número do jogador a jogar
+   * Retorna o número do jogador a jogar.
    *
    * @returns number
    */
@@ -87,7 +86,7 @@ export class JogoDaVelhaService {
   }
 
   /**
-   * Exibe o tabuleiro
+   * Exibe o tabuleiro.
    *
    * @returns void
    */
@@ -97,7 +96,7 @@ export class JogoDaVelhaService {
   }
 
   /**
-   * Realiza uma jogada dado as coordenadas do tabuleiro
+   * Realiza uma jogada dado as coordenadas do tabuleiro.
    *
    * @param number posX
    * @param number posY
@@ -118,10 +117,12 @@ export class JogoDaVelhaService {
       this.cpuJogar();
     }
 
+    // houve vitória
     if (this.vitoria !== false) {
       this._showFinal = true;
     }
 
+    // empate
     if (!this.vitoria && this.numMovimentos === 9) {
       this._jogador = 0;
       this._showFinal = true;
@@ -129,12 +130,12 @@ export class JogoDaVelhaService {
   }
 
   /**
-   * Verifica e retorna se o jogo terminou
+   * Verifica e retorna se o jogo terminou.
    *
    * @param number linha
    * @param number coluna
    * @param any tabuleiro
-   * @param number joggador
+   * @param number jogador
    * @returns array
    */
   fimJogo(linha: number, coluna: number, tabuleiro: any, jogador: number) {
@@ -199,11 +200,11 @@ export class JogoDaVelhaService {
           }
         }
       }
-      let k = Math.floor((Math.random() * (jogadas.length -1)));
+      let k = Math.floor((Math.random() * (jogadas.length - 1)));
       jogada = [jogadas[k][0], jogadas[k][1]];
     }
 
-    this.tabuleiro[jogada[0][jogada[1]]] = this._jogador;
+    this.tabuleiro[jogada[0]][jogada[1]] = this._jogador;
     this.numMovimentos++;
     this.vitoria = this.fimJogo(jogada[0], jogada[1], this.tabuleiro, this._jogador);
     this._jogador = (this.jogador === this.X) ? this.O : this.X;
@@ -228,8 +229,8 @@ export class JogoDaVelhaService {
         }
         tab[lin][col] = this.VAZIO;
       }
-      return [];
     }
+    return [];
   }
 
   /**
@@ -241,7 +242,7 @@ export class JogoDaVelhaService {
    * @return boolean
    */
   exibirX(posX: number, posY: number): boolean {
-    return this.tabuleiro[posX][posY] === this.X
+    return this.tabuleiro[posX][posY] === this.X;
   }
 
   /**
@@ -253,12 +254,12 @@ export class JogoDaVelhaService {
    * @return boolean
    */
   exibirO(posX: number, posY: number): boolean {
-    return this.tabuleiro[posX][posY] === this.O
+    return this.tabuleiro[posX][posY] === this.O;
   }
 
   /**
-   * returna se a marcação de vitória deve ser
-   * exibida para a coordenada informada.
+   * Retorna se a marcação de vitória deve ser exibida para a
+   * coordena informada.
    *
    * @param number posX
    * @param number posY
@@ -267,7 +268,7 @@ export class JogoDaVelhaService {
   exibirVitoria(posX: number, posY: number): boolean {
     let exibirVitoria: boolean = false;
 
-    if(!this.vitoria) {
+    if (!this.vitoria) {
       return exibirVitoria;
     }
 
@@ -282,7 +283,7 @@ export class JogoDaVelhaService {
   }
 
   /**
-   * Inicializa um novo jogo, e exibe tabuleiro
+   * Inicializa um novo jogo, assim como exibe o tabuleiro.
    *
    * @returns void
    */
@@ -292,4 +293,5 @@ export class JogoDaVelhaService {
     this._showInicio = false;
     this._showTabuleiro = true;
   }
+
 }

@@ -14,3 +14,5 @@ Básico de angular, conceitos iniciais como estrutura de pasta, componentes e mo
 Entendimento da ligação entre módulos, componentes e serviços, testes de funções e componentes
 - 03: TodoList
 Criação de Rotas, conceito de "model", CRUD basico no Angular, conceito de diretivas
+- 03: Jogo da velha
+Básico de assets, adicionando imagens no projeto. Me dei a liberdade de refatorar o html do tabuleiro para escrever menos código
