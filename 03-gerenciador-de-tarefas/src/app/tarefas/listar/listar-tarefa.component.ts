@@ -18,13 +18,7 @@ export class ListarTarefaComponent implements OnInit {
   }
 
   listarTodos(): Tarefa[] {
-    return [
-      new Tarefa(1, "Tarefa 1", false),
-      new Tarefa(2, "Tarefa 2", false),
-      new Tarefa(3, "Tarefa 3", true),
-      new Tarefa(4, "Tarefa 455678", false),
-    ]
-    //TODO return this.tarefaService.listarTodos();
+    return this.tarefaService.listarTodos();
   }
 
   remover($event: any, tarefa: Tarefa): void {
@@ -32,6 +26,13 @@ export class ListarTarefaComponent implements OnInit {
     if (confirm('Deseja remover a tarefa "'+ tarefa.nome +'"?')) {
       this.tarefaService.remover(tarefa.id);
       this.tarefas = this.listarTodos();
+    }
+  }
+
+  alterarStatus(tarefa: Tarefa): void {
+    if (confirm('Deseja alterar o status da tarefa "'+ tarefa.nome +'"?')) {
+      this.tarefaService.alterarStatus(tarefa.id);
+      this.tarefas = this.tarefaService.listarTodos();
     }
   }
 }
