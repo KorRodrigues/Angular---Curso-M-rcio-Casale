@@ -13,4 +13,4 @@ Básico de angular, conceitos iniciais como estrutura de pasta, componentes e mo
 - 02: Calculadora
 Entendimento da ligação entre módulos, componentes e serviços, testes de funções e componentes
 - 03: TodoList
-Criação de Rotas, conceito de "model", CRUD basico no Angular
+Criação de Rotas, conceito de "model", CRUD basico no Angular, conceito de diretivas
