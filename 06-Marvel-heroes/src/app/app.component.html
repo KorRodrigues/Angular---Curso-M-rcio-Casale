@@ -1,0 +1,36 @@
+<div>
+  <mat-toolbar color="primary">
+    <div>
+      <a routerLink="/">
+        <img
+          src="//i.annihil.us/u/prod/misc/marvel.svg"
+          alt="Marvel"
+          title="Home"
+          height="40"
+        />
+      </a>
+    </div>
+    <span class="flex-spacer"></span>
+    <div>
+      <herosearchform></herosearchform>
+    </div>
+    <span class="flex-spacer"></span>
+  </mat-toolbar>
+  <div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <footer>
+    <div>
+      <div>
+        <p>APP created by Tiago A. Rodrigues</p>
+        <p>
+          <a href="http://marvel.com" className={classes.footerLink}>
+            Data provided by Marvel. © 2019 MARVEL
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</div>
