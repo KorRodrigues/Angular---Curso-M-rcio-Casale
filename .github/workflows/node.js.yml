@@ -18,7 +18,7 @@ on:
 jobs:
   ci:
     name: CI
-    runs-on: vs-ecomm
+    runs-on: ubuntu-latest
     environment: ci
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
